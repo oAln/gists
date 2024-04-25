@@ -1,0 +1,46 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+      "baseUrl": "src",
+      "outDir": "./dist/out-tsc",
+      "paths": {
+        "@admin/*": ["app/admin/*"],
+        "@broker/*": ["app/broker/*"],
+        "@core/*": ["app/core/*"],
+        "@shared/*": ["app/shared/*"],
+        "@util/*": ["app/util/*"],
+        "@decorator/*": ["app/decorator/*"]
+      },
+      "forceConsistentCasingInFileNames": false,
+      "strict": false,
+      "noImplicitOverride": true,
+      "noPropertyAccessFromIndexSignature": false,
+      "noImplicitReturns": false,
+      "noFallthroughCasesInSwitch": false,
+      "allowSyntheticDefaultImports": true,
+      "sourceMap": true,
+      "declaration": false,
+      "downlevelIteration": true,
+      "experimentalDecorators": true,
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "target": "ES2022",
+      "module": "ES2022",
+      "skipLibCheck": true,
+      "emitDecoratorMetadata": false,
+      "useDefineForClassFields": false,
+      "lib": ["ES2022", "dom"],
+      "resolveJsonModule": true,
+      "esModuleInterop": true
+    },
+    "angularCompilerOptions": {
+      "annotateForClosureCompiler": false,
+      "strictMetadataEmit": true,
+      "skipTemplateCodegen": false,
+      "enableI18nLegacyMessageIdFormat": false,
+      "strictInjectionParameters": true,
+      "strictInputAccessModifiers": true
+    }
+  }
+  

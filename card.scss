@@ -1,0 +1,223 @@
+@import "variables";
+$icon-wrap-height: 25px;
+$bot-icon-width: 58px;
+$bot-icon-height: 52px;
+
+@mixin bot-card-dimension($card-width: $bot-card-width, $card-height: $bot-card-height) {
+  .bot-card {
+    display: inline-flex;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: $card-width;
+    height: $card-height;
+    min-width: 300px;
+    min-height: 150px;
+
+    .left-part {
+      display: block;
+      width: $card-width - 40;
+      height: 100%;
+      padding: 5px;
+      float: left;
+
+      .sub-part {
+        display: block;
+        width: 100%;
+        height: $card-height/2 + 20;
+
+        &:first-child {
+          height: $card-height/2 - 30;
+        }
+      }
+    }
+
+    .right-part {
+      display: block;
+      height: 100%;
+      width: $card-width - ($card-width - 40);
+      float: right;
+
+      .icon-wrap {
+        width: 100%;
+        height: $icon-wrap-height;
+        display: block;
+        text-align: center;
+        padding: 5px 0 1px 0;
+
+        .icon {
+          cursor: pointer;
+          max-width: 18px;
+          max-height: 16px;
+          padding: 1px;
+          margin-top: 0;
+          margin-left: 8px;
+          fill: #999aa1;
+        }
+      }
+
+      .card-menu {
+        position: absolute;
+        bottom: 0;
+        width: 35px;
+        height: auto;
+        display: block;
+        padding-bottom: 5px;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2), 0 2px 20px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .icon-sec {
+      position: relative;
+      height: 100%;
+      width: 80px;
+      padding: 5px;
+      float: left;
+      cursor: pointer;
+
+      .bot-icon {
+        width: $bot-icon-width;
+        height: $bot-icon-height;
+        display: block;
+        @include bot-card-icon;
+        background-size: contain;
+        background-position: center;
+        border-radius: 8px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .channel-sec {
+      display: block;
+      position: relative;
+      width: ($bot-card-width - 40) - 115;
+      height: 100%;
+      padding: 8px;
+      margin-left: 76px;
+
+      p {
+        display: block;
+        font-size: 0.8em;
+        margin-top: $card-height/8 - 10;
+        color: #808b96;
+
+        &:first-child {
+          font-family: sf-medium, sans-serif;
+          margin-bottom: 5px;
+        }
+      }
+
+      div {
+        display: block;
+        padding: 4px 4px 4px 0;
+
+        .platform-wrap {
+          width: 22px;
+          height: 22px;
+          background-color: #ccd1d1;
+          margin: 1px 2px;
+          position: relative;
+          float: left;
+          border-radius: 2px;
+
+          .icon {
+            position: relative;
+            top: 22%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 6px;
+            max-width: 16px;
+            min-width: 16px;
+            max-height: 16px;
+            fill: white;
+            cursor: default !important;
+            margin-bottom: 6px;
+          }
+        }
+      }
+    }
+
+    .content-sec {
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+
+      h2 {
+        font-size: 21px;
+        font-weight: 500;
+        padding: 0 8px 8px 8px;
+      }
+
+      p {
+        width: 100%;
+        color: #070E23;
+        margin-left: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: initial;
+        display: -webkit-box;
+
+        line-height: 16px;
+        /* fallback */
+        max-height: 32px;
+        /* fallback */
+        -webkit-line-clamp: 2;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+      }
+
+      .header-block {
+        display: block;
+        width: 100%;
+
+        .sub-sec {
+          h6 {
+            margin-left: 8px;
+            margin-bottom: 4px;
+            font-family: sf-medium, serif;
+          }
+
+          h2 {
+            font-family: sf-light, serif;
+          }
+
+          &:first-child {
+            width: ($bot-card-width - 40)/2;
+          }
+
+          width: ($bot-card-width - 120)/2;
+          // display: inline-block;
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+@include bot-card-dimension(378px, 200px);
+
+@media (min-width: 540px) {
+  @include bot-card-dimension(320px, 180px);
+}
+
+@media (min-width: 720px) {
+  @include bot-card-dimension(378px, 200px);
+}
+
+@media (min-width: 960px) {
+  @include bot-card-dimension(378px, 200px);
+}
+
+@media (min-width: 1140px) {
+  @include bot-card-dimension(378px, 200px);
+}
+
+@media (min-width: 1540px) {
+  @include bot-card-dimension(450px, 280px);
+}

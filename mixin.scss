@@ -1,0 +1,155 @@
+@import "./functions";
+
+// font sizes
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// margin mixin
+// @include margin(1px, 2px, null, 4px);
+@mixin margin($top, $right, $bottom, $left) {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+}
+
+// padding mixin 
+// @include padding(1px, null, 3px, 4px);
+@mixin padding($top, $right, $bottom, $left) {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+}
+
+// background gradient  
+// @include background-gradient(red, black, 'vertical');
+@mixin background-gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+
+    @if $orientation =='vertical' {
+        background: -webkit-linear-gradient(top, $start-color, $end-color);
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    }
+
+    @else if $orientation =='horizontal' {
+        background: -webkit-linear-gradient(left, $start-color, $end-color);
+        background: linear-gradient(to right, $start-color, $end-color);
+    }
+
+    @else {
+        background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+        background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+
+// .foo {
+//     @include screen(large) {
+//       width: 20%;
+//     }
+//     @include screen(med) {
+//       width: 40%;
+//     }
+//     @include screen(med-small) {
+//       width: 60%;
+//     }
+//     @include screen(small) {
+//       width: 80%;
+//     }
+//     @include screen(custom, max, 400) {
+//       width: 100%;
+//     }
+//   }
+// $breakpoint-small: 600px;
+// $breakpoint-med-small: 960px;
+// $breakpoint-med: 1175px;
+
+// @mixin screen($size, $type: max, $pixels: $breakpoint-small) {
+//     @if $size =='small' {
+//         @media screen and ($type + -width: $breakpoint-small) {
+//             @content;
+//         }
+//     }
+
+//     @else if $size =='med-small' {
+//         @media screen and ($type + -width: $breakpoint-med-small) {
+//             @content;
+//         }
+//     }
+
+//     @else if $size =='med' {
+//         @media screen and ($type + -width: $breakpoint-med) {
+//             @content;
+//         }
+//     }
+
+//     @else if $size =='large' {
+//         @media screen and ($type + -width: $breakpoint-med) {
+//             @content;
+//         }
+//     }
+
+//     @else if $size =='custom' {
+//         @media screen and ($type + -width: $pixels + px) {
+//             @content;
+//         }
+//     }
+
+//     @else {
+//         @content;
+//     }
+// }
+
+@mixin screen($breakpoint) {
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+// // font-face
+// @mixin font-face($font-name, $file-name, $weight: normal, $style: normal) { 
+//     @font-face {
+//       font-family: quote($font-name);
+//       src: url($file-name + '.eot');
+//       src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+//            url($file-name + '.woff') format('woff'),
+//            url($file-name + '.ttf')  format('truetype'),
+//            url($file-name + '.svg##{$font-name}')  format('svg');
+//       font-weight: $weight;
+//       font-style: $style;
+//     }
+//   }
+
+
+// centering elements
+// .foo @include center(both);
+// .foo-parent position: relative;
+
+// @mixin center($position) {
+//     position: absolute;
+
+//     @if $position =='vertical' {
+//         top: 50%;
+//         -webkit-transform: translateY(-50%);
+//         -ms-transform: translateY(-50%);
+//         transform: translateY(-50%);
+//     }
+
+//     @else if $position =='horizontal' {
+//         left: 50%;
+//         -webkit-transform: translateX(-50%);
+//         -ms-transform: translateX(-50%);
+//         transform: translate(-50%);
+//     }
+
+//     @else if $position =='both' {
+//         top: 50%;
+//         left: 50%;
+//         -webkit-transform: translate(-50%, -50%);
+//         -ms-transform: translate(-50%, -50%);
+//         transform: translate(-50%, -50%);
+//     }
+// }

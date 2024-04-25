@@ -1,0 +1,59 @@
+@import "variables";
+
+.mat-mdc-form-field {
+    width: 100%;
+
+    &:hover {
+        .mat-mdc-form-field-focus-overlay {
+            background-color: $white;
+        }
+    }
+
+    .mdc-text-field--filled {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .mdc-text-field--focused {
+        background-color: $white;
+    }
+
+    .mat-mdc-form-field-subscript-wrapper .mat-mdc-form-field-error-wrapper {
+        padding: 0;
+    }
+
+    .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+        padding: 24px 0 8px 0;
+    }
+
+}
+
+.mat-mdc-checkbox {
+    .mdc-checkbox__background {
+        svg.mdc-checkbox__checkmark {
+            background-color: $accent-color;
+            color: $white;
+        }
+    }
+}
+
+button.secondary-button.mdc-button.mdc-button--raised.mat-mdc-raised-button {
+    background-color: $warn-secondary-color;
+}
+
+button.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-accent,
+button.mdc-fab.mdc-fab--mini.mat-mdc-mini-fab.mat-accent {
+    background-color: $accent-color;
+}
+
+.mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab {
+    flex-grow: 0 !important;
+}
+
+.mat-mdc-tab-labels {
+    border-bottom: 0.8px solid #e0e0e0;
+}
+
+mat-icon.mat-icon.mat-icon-no-color svg {
+    height: 19px;
+}
